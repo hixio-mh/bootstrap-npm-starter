@@ -11,19 +11,6 @@
 
 
 //
-// Override Bootstrap here
-//
-
-// Toggle global options
-$enable-gradients: true;
-$enable-shadows: true;
-
-// Customize some defaults
-$body-color: purple;
-$body-bg: #f5f5f5;
-
-
-//
 // Bring in Bootstrap
 //
 
@@ -35,12 +22,23 @@ $body-bg: #f5f5f5;
 
 // Option 2
 //
-// Import just the styles you need. Note that some stylesheets are required no matter what.
+// Place variable overrides first, then import just the styles you need. Note that some stylesheets are required no matter what.
+
+// Toggle global options
+$enable-gradients: true;
+$enable-shadows: true;
+
+// Customize some defaults
+$body-color: #333;
+$body-bg: #fff;
+$border-radius: .4rem;
+$success: #7952b3;
 
 @import "bootstrap/scss/functions"; // Required
 @import "bootstrap/scss/variables"; // Required
 @import "bootstrap/scss/mixins"; // Required
-// @import "bootstrap/scss/root";
+
+@import "bootstrap/scss/root"; // Required
 @import "bootstrap/scss/reboot"; // Required
 @import "bootstrap/scss/type";
 // @import "bootstrap/scss/images";
@@ -65,22 +63,28 @@ $body-bg: #f5f5f5;
 // @import "bootstrap/scss/progress";
 // @import "bootstrap/scss/media";
 // @import "bootstrap/scss/list-group";
-// @import "bootstrap/scss/close";
+@import "bootstrap/scss/close";
 // @import "bootstrap/scss/toasts";
 @import "bootstrap/scss/modal"; // Requires transitions
 // @import "bootstrap/scss/tooltip";
 // @import "bootstrap/scss/popover";
 // @import "bootstrap/scss/carousel";
 // @import "bootstrap/scss/spinners";
-// @import "bootstrap/scss/utilities";
+@import "bootstrap/scss/utilities";
 // @import "bootstrap/scss/print";
-
 
 
 //
 // Custom styles
 //
 
+@import "icon-list";
+
 body {
-  padding: 3rem;
+  padding: 3rem 1.5rem;
+}
+
+// Style Bootstrap icons
+.bi {
+  fill: currentColor;
 }

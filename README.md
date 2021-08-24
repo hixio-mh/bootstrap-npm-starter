@@ -1,10 +1,16 @@
-# Bootstrap npm starter template
+<p align="center">
+  <img src=".github/logo.png" width="300" height="175" alt="Bootstrap npm logo">
+</p>
+
+<h3 align="center">Bootstrap npm starter template</h3>
+
+<p align="center">Create new Bootstrap-powered npm projects in no time.</p>
+
+## About
+
+`bootstrap-npm-starter` is a GitHub template repository for creating new Bootstrap-powered npm projects, maintained by Bootstrap co-author @mdo. You can also use it as your own Bootstrap prototyping sandbox. It's built with Bootstrap v4 with plans to update for v5.
 
 [![Build Status](https://github.com/twbs/bootstrap-npm-starter/workflows/CI/badge.svg)](https://github.com/twbs/bootstrap-npm-starter/actions)
-
-This repo is a template for creating new Bootstrap-powered npm projects, maintained by Bootstrap co-author @mdo. You can also use it as your own Bootstrap prototyping sandbox.
-
-Built with Bootstrap v4.5.0 with plans to update for v5.
 
 ## Repo template
 
@@ -13,7 +19,8 @@ Setup as a starter template, you can easily generate a new GitHub repository. Fr
 ## What's included
 
 - Single HTML page (`index.html`) to demonstrate how to include Bootstrap.
-- Includes Bootstrap (currently using v4.5.0) source files via npm.
+- Includes [Bootstrap](https://getbootstrap.com) (currently using v4.6.0) source files via npm.
+- Includes [Bootstrap Icons](https://icons.getbootstrap.com) (v1.4.0), which includes over 1,200 icons available as SVGs and web fonts.
 - npm scripts (see `package.json`) for compiling and autoprefixing Sass, watching for changes, and starting a basic local server.
 - Example stylesheet (`scss/starter.scss`) highlighting two ways to include and customize Bootstrap.
 - Example JavaScript file (`assets/js/starter.js`) showing how to import all of Bootstrap, or just the parts you need.
@@ -36,8 +43,11 @@ npm run css-compile
 # Watch Sass for changes (uses nodemon)
 npm run watch
 
-# Start local server (uses serve)
+# Start local server (uses sirv-cli)
 npm run server
+
+# Watches Sass for changes and starts a local server
+npm start
 ```
 
 For the most straightforward development, open two Terminal tabs to execute `npm run server` and `npm run watch` at the same time.
@@ -46,7 +56,7 @@ Open <http://localhost:3000> to see the page in action.
 
 ## Scripts
 
-The following npm scripts are available to you in this starter repo. With the exception of `npm start`, the remaining scripts can be run from your command line with `npm run scriptName`.
+The following npm scripts are available to you in this starter repo. With the exception of `npm start` and `npm test`, the remaining scripts can be run from your command line with `npm run scriptName`.
 
 | Script | Description |
 | --- | --- |
@@ -54,8 +64,10 @@ The following npm scripts are available to you in this starter repo. With the ex
 | `watch` | Automatically recompiles CSS as it watches the `scss` directory for changes |
 | `css` | Runs `css-compile` and `css-prefix` |
 | `css-compile` | Compiles source Sass into CSS |
-| `css-prefix` | Runs Autoprefixer on the compiled CSS |
-| `css-purge` | Runs PurgeCSS to remove CSS that is unused by `index.html` |
+| `css-lint` | Runs [Stylelint](https://stylelint.io) against source Sass for code quality |
+| `css-prefix` | Runs [Autoprefixer](https://github.com/postcss/autoprefixer) on the compiled CSS |
+| `css-purge` | Runs [PurgeCSS](https://purgecss.com) to remove CSS that is unused by `index.html` |
+| `test` | Runs `css-lint` and `css`, in sequential order |
 
 ## Advanced usage
 
@@ -101,6 +113,12 @@ When your repository is generated, you won't see anything in the Actions tab unt
 
 [Learn more about GitHub Actions](https://github.com/features/actions), [read the Actions docs](https://help.github.com/en/actions), or [browse the Actions Marketplace](https://github.com/marketplace/actions).
 
+### Stylelint
+
+Stylelint is included, as is Bootstrap's default Stylelint config, [stylelint-config-twbs-bootstrap](https://github.com/twbs/stylelint-config-twbs-bootstrap). This is the same linter configuration we use in the main Bootstrap project. It's run via the `npm test` command, which is invoked in our `ci.yml` Actions workflow file.
+
+At the root of the repo, `.stylelintignore` is used to list files that we ignore when linting and `.stylelintrc` is where we tell Stylelint to use the Bootstrap config. The former is recommended based on your specific needs, while the latter is required.
+
 ## Copyright
 
-&copy; @mdo 2020 and licensed MIT.
+&copy; @mdo 2020-2021 and licensed MIT.
