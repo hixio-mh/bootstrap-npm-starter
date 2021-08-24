@@ -42,7 +42,7 @@
   "devDependencies": {
 snyk-fix-a5ee2a0251196bfde9b3ee44474906dc
     "autoprefixer": "^9.8.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^5.0.0",
     "nodemon": "^2.0.4",
     "postcss-cli": "^7.1.1",
     "purgecss": "^2.1.2",
